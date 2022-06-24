@@ -4,6 +4,7 @@ metadata:
   name: helloworld-app-route
   labels:
     app: helloworld-app
+    apps.open-cluster-management.io/do-not-delete: 'true'
 spec:
   to:
     kind: Service
