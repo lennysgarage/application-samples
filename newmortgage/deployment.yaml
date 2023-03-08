@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mortgage-app-mortgage
-        image: "quay.io//////"
+        image: "quay.io/aaa/aaa/aaaa"
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 9080
