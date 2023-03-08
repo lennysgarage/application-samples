@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mortgage-app-deploy
+  name: mortgage-app-deploy-test
 spec:
   selector:
     matchLabels:
-      app: mortgage-app-mortgage
+      app: mortgage-app-mortgage-test
   replicas: 1
   template:
     metadata:
       labels:
-        app: mortgage-app-mortgage
+        app: mortgage-app-mortgage-test
     spec:
       containers:
-      - name: mortgage-app-mortgage
+      - name: mortgage-app-mortgage-test
         image: "quay.io/aaa/aaa/aaaa"
         imagePullPolicy: IfNotPresent
         ports:
