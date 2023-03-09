@@ -5,11 +5,11 @@ metadata:
   labels:
     app: helloworld-app-degraded
 spec:
-  progressDeadlineSeconds: 600
+  progressDeadlineSeconds: 3
   selector:
     matchLabels:
       app: helloworld-app-degraded
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
