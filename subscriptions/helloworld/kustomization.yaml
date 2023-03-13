@@ -2,6 +2,5 @@ resources:
 - namespace.yaml
 - channel.yaml
 - placement.yaml
-- oauth.yaml
 - subscription.yaml
 - application.yaml
