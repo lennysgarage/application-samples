@@ -1,0 +1,44 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  annotations:
+    apps.open-cluster-management.io/reconcile-option: merge
+  labels:
+    app: banner
+    app.kubernetes.io/part-of: banner
+    apps.open-cluster-management.io/reconcile-rate: medium
+  name: cluster
+spec:
+  identityProviders:
+  - htpasswd:
+      fileData:
+        name: htpass-secret
+    mappingMethod: claim
+    name: htpasswd_provider
+    type: HTPasswd
+  - ldap:
+      attributes:
+        email:
+        - mail
+        id:
+        - dn
+        name:
+        - cn
+        preferredUsername:
+        - sAMAccountName
+      bindDN: <some-OU-of-service-account>
+      bindPassword:
+        name: ldap-secret
+      ca:
+        name: ca-config-map
+      insecure: false
+      url: <some-ldap-url>
+    mappingMethod: claim
+    name: ldap login
+    type: LDAP
+  templates:
+    login:
+      name: login-template
+  tokenConfig:
+    accessTokenInactivityTimeout: 1800s
+    accessTokenMaxAgeSeconds: 43200
